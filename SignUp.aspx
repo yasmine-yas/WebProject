@@ -301,8 +301,23 @@
                 <td class="auto-style4">&nbsp;</td>
             </tr>
         </table>
-    </form>
         <div>
         </div>
-    </body>
+        <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:Button ID="btnSubmit" runat="server" BackColor="#006666" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="btnSubmit_Click" Text="Submit" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblMsg" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="X-Large" Font-Underline="True" ForeColor="#006666"></asp:Label>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
 </html>
