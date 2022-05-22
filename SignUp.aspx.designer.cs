@@ -294,13 +294,13 @@ namespace WEBProject
         protected global::System.Web.UI.WebControls.Label Label18;
 
         /// <summary>
-        /// Txtpassword1 control.
+        /// TxtConfrimPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txtpassword1;
+        protected global::System.Web.UI.WebControls.TextBox TxtConfrimPassword;
 
         /// <summary>
         /// RequiredFieldValidator6 control.
@@ -339,13 +339,13 @@ namespace WEBProject
         protected global::System.Web.UI.WebControls.TextBox TxtMobile;
 
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// RequiredFieldValidator8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
         /// RegularExpressionValidator6 control.
