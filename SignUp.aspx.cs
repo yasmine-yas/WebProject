@@ -77,8 +77,12 @@ namespace WEBProject
             {
                 lblMsg.Text = " sorry , system is not available at the moment , you may try later";
             }
-
         }
+            protected void TxtFname_TextChanged(object sender, EventArgs e)
+            {
+
+            }
+        
     }
 }
     
