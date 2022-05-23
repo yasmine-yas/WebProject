@@ -94,9 +94,10 @@
                     <asp:Label ID="Label1" runat="server" BackColor="#006666" Font-Bold="True" Font-Names="Arial" Font-Size="Medium" ForeColor="White" Text="First Name"></asp:Label>
                 </td>
                 <td class="auto-style12">
-                    <asp:TextBox ID="TxtFname" runat="server" OnTextChanged="TxtFname_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TxtFname" runat="server"></asp:TextBox>
                     <br />
-                    <font color="#00FF00" face="arial" size="-1">Example:Ahmed or Abdel Rahman</font>
+                    <font color="#00FF00" face="arial" size="-1">Example:Ahmed or Abdel Rahman</font>       
+                    
                     <br />
                 </td>
                 <td class="auto-style16">

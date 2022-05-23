@@ -17,38 +17,22 @@ namespace WEBProject
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            // create connection object
-            SqlConnection conn = new SqlConnection();
-
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Project.mdf;Integrated Security=True";
-
-            //Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Project.mdf;Integrated Security=True
-            //create insert statment
-
-
-            // Create sql insert stament
+            //1- set connction
+            SqlConnection cnn = new SqlConnection();
+            cnn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Project.mdf;Integrated Security=True";
+            //2-create insert statment
             string strInsert = String.Format("INSERT INTO [dbo].[Person] values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' , {10} )", TxtFname.Text, txtLname.Text, txtEmail.Text, TxtUser.Text, Calendar1.SelectedDate, rblSex.SelectedValue, ddlCountry.SelectedValue, Txtaddress.Text, TxtPassword.Text, TxtMobile.Text, ddlRole.SelectedValue);
+            //3-command
 
-
-            // create sql command
-            SqlCommand cmdInsert = new SqlCommand(strInsert, conn);
-            // cmdInsert.Connection = conn;
-
-            //execute the sql command 
-            //cmdInsert.ExecuteNonQuery();
+            SqlCommand cmdstring = new SqlCommand(strInsert, cnn);
 
             try
             {
+                // 4- open
+                cnn.Open();
+                cmdstring.ExecuteNonQuery();
+                cnn.Close();
 
-                // int x = 0, y = 0 , z;
-
-                conn.Open();
-                cmdInsert.ExecuteNonQuery();
-                conn.Close();
-
-
-                //7- Save user picture
                 if (fupPic.HasFiles)
                 {
                     fupPic.SaveAs(Server.MapPath("userPic") + "\\" + TxtUser.Text + "jpg");
@@ -58,30 +42,29 @@ namespace WEBProject
 
                 lblMsg.Text = "Welcome" + " " + TxtFname.Text + "your account has been created successfully";
             }
+
             catch (SqlException err)
             {
-                if (err.Number == 2627)
-                {
-                    lblMsg.Text = "the username" + TxtUser.Text + " " + "alreaady used , please enter new one";
 
-                }
+                if (err.Number == 2627)
+                    lblMsg.Text = "Username already used, please, choose another!!";
                 else
-                {
-                    lblMsg.Text = "sorry database problem , please try later";
-                }
+                    if (err.Number == 8152)
+                    lblMsg.Text = "Database error, too long Input!!";
+                else
+                    lblMsg.Text = "Database error!!, You may try later!!";
 
             }
 
             catch
             {
-                lblMsg.Text = " sorry , system is not available at the moment , you may try later";
-            }
-        }
-            protected void TxtFname_TextChanged(object sender, EventArgs e)
-            {
+                lblMsg.Text = "Sorry, Server Error!! You May Try Later!!";
 
             }
-        
+
+
+        }
+
     }
 }
-    
+
