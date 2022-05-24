@@ -19,15 +19,15 @@ namespace WEBProject
         {
             //1- set connction
             SqlConnection cnn = new SqlConnection();
-            cnn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Project.mdf;Integrated Security=True";
+            cnn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Register.mdf;Integrated Security=True";
             //2-create insert statment
             string strInsert = String.Format("INSERT INTO [dbo].[Person] values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' , {10} )", TxtFname.Text, txtLname.Text, txtEmail.Text, TxtUser.Text, Calendar1.SelectedDate, rblSex.SelectedValue, ddlCountry.SelectedValue, Txtaddress.Text, TxtPassword.Text, TxtMobile.Text, ddlRole.SelectedValue);
             //3-command
 
             SqlCommand cmdstring = new SqlCommand(strInsert, cnn);
 
-            try
-            {
+            
+           
                 // 4- open
                 cnn.Open();
                 cmdstring.ExecuteNonQuery();
@@ -41,26 +41,12 @@ namespace WEBProject
 
 
                 lblMsg.Text = "Welcome" + " " + TxtFname.Text + "your account has been created successfully";
-            }
+            
 
-            catch (SqlException err)
-            {
+            
 
-                if (err.Number == 2627)
-                    lblMsg.Text = "Username already used, please, choose another!!";
-                else
-                    if (err.Number == 8152)
-                    lblMsg.Text = "Database error, too long Input!!";
-                else
-                    lblMsg.Text = "Database error!!, You may try later!!";
 
-            }
-
-            catch
-            {
-                lblMsg.Text = "Sorry, Server Error!! You May Try Later!!";
-
-            }
+            
 
 
         }
