@@ -21,7 +21,8 @@ namespace WEBProject
             SqlConnection cnn = new SqlConnection();
             cnn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Register.mdf;Integrated Security=True";
             //2-create insert statment
-            string strInsert = String.Format("INSERT INTO [dbo].[Person] values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' , {10} )", TxtFname.Text, txtLname.Text, txtEmail.Text, TxtUser.Text, Calendar1.SelectedDate, rblSex.SelectedValue, ddlCountry.SelectedValue, Txtaddress.Text, TxtPassword.Text, TxtMobile.Text, ddlRole.SelectedValue);
+           // string strInsert = String.Format("INSERT INTO [dbo].[Person] values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', ");
+           string strInsert = String.Format("INSERT INTO [dbo].[Person] values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}' , {10} )", TxtFname.Text, txtLname.Text, txtEmail.Text, TxtUser.Text, Calendar1.SelectedDate, rblSex.SelectedValue, ddlCountry.SelectedValue, Txtaddress.Text, TxtPassword.Text, TxtMobile.Text, ddlRole.SelectedValue);
             //3-command
 
             SqlCommand cmdstring = new SqlCommand(strInsert, cnn);
